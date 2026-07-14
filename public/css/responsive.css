@@ -515,8 +515,12 @@
 
 
 @media (max-width: 576px) {
+    #bite-head{
+        display: none;
+    }
+
     .searchbar input{
-       width:100%px;
+       width:100%;
     }
 
     .logo h1{
