@@ -269,7 +269,7 @@ Learned:
 
 ---
 
-## Deployment & DevOps
+## Deployment
 
 Learned:
 
