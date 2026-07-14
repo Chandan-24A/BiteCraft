@@ -273,47 +273,84 @@ Learned:
 
 ---
 
-# Installation & Setup
+# ⚙️ Installation & Setup
 
 ## Clone Repository
 
 ```bash
 git clone https://github.com/Chandan-24A/BiteCraft.git
+```
 
 ## Navigate to Project
+
 ```bash
 cd BiteCraft
+```
 
 ## Install Dependencies
 
 ```bash
 npm install
+```
 
-## Create a .env file:
+## Create Environment Variables
+
+Create a `.env` file in the root directory:
+
 ```env
 DATABASE_URL=your_neon_database_url
 
 SESSION_SECRET=your_session_secret
 
 SPOONACULAR_API_KEY=your_spoonacular_api_key
+```
 
-## Run Application
+ Never commit your `.env` file to GitHub.
+
+---
+
+#  Run Application
+
+## Development Mode
+
 ```bash
 npm run dev
+```
+
+## Production Mode
+
+```bash
 npm start
+```
+
+Application runs on:
+
+```
+http://localhost:3000
+```
+
+---
 
 # Running With Docker
 
 ## Build Docker Image
+
 ```bash
 docker build -t bitecraft .
+```
 
 ## Run Container
+
 ```bash
 docker run -p 3000:3000 bitecraft
+```
 
-## Application will be available at
-```bash
+Application will be available at:
+
+```
 http://localhost:3000
+```
 
-# If you find this project useful, consider giving it a star!
+---
+
+ If you find this project useful, consider giving it a star!
