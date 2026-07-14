@@ -117,23 +117,28 @@ This project helped me gain practical experience in full-stack development, back
 
 # Project Structure
 
+```
 BiteCraft/
-├── node_modules/
+│
 ├── public/
 │   ├── css/
 │   │   ├── responsive.css
 │   │   └── style.css
+│   │
 │   ├── images/
-│   │   ├── bars-solid-full.svg
 │   │   ├── favicon.ico
 │   │   ├── recipe.png
+│   │   ├── bars-solid-full.svg
 │   │   └── xmark-solid-full.svg
+│   │
 │   └── js/
 │       └── main.js
+│
 ├── views/
 │   ├── partials/
 │   │   ├── footer.ejs
 │   │   └── header.ejs
+│   │
 │   ├── 404.ejs
 │   ├── 500.ejs
 │   ├── home.ejs
@@ -145,13 +150,15 @@ BiteCraft/
 │   ├── register.ejs
 │   ├── search-recipe.ejs
 │   └── search.ejs
+│
 ├── .dockerignore
-├── .env
 ├── .gitignore
 ├── Dockerfile
 ├── index.js
+├── package.json
 ├── package-lock.json
-└── package.json
+└── README.md
+```
        
 ---
 
