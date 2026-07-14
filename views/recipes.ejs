@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+
+ <%if(!recipes || recipes.length === 0){%>
+    <div class="error">
+        <h1>🍽️ No recipes found</h1>
+        <p>
+          Try using different ingredients or remove one or two items from your search.
+        </p>
+    </div>
+ <%} else {%>
+
+  <div class="recipe-container">
+          <div class="recipe-heading">
+             <h1>Recipe Suggestions</h1>
+             <p>Here are the best recipes matching your ingredients.</p>
+          </div>
+ 
+          <div class="card-container">
+             <% recipes.forEach((item) => { %>
+             <div class="recipe-card">
+               <img src="<%= item.image %>" alt="image of recipe">
+               <h2><%= item.title %></h2>
+
+               <h4 class="have">Ingredients You Have:</h4>
+               <ul class="ingredients">
+                 <%item.usedIngredients.forEach((used)=>{ %>
+                   <li><%= used.originalName %></li>
+                 <%})%>
+               </ul>
+               <hr>
+               <h4 class="miss">Missing Ingredients:</h4>
+               <% if(item.missedIngredients.length){ %>
+                <ul class="ingredients">
+                   <% item.missedIngredients.forEach((missed)=>{ %>
+                    <li><%= missed.originalName %></li>
+                   <% }) %>
+                </ul>
+               <% } else { %>
+                    <p>🎉 You already have all the required ingredients!</p>
+               <% } %>
+               <a href="/recipes/<%= item.id %>">View Full Recipe →</a>
+              </div>
+             <% }); %>
+    </div>
+<% } %>
+  </div>
+<%- include('partials/footer') %>

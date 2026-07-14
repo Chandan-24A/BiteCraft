@@ -1,0 +1,36 @@
+    <%- include('partials/header') %>
+    <div class="pan-head">
+        <h1>My Pantry</h1>
+        <h3>Manage your kitchen ingredients and discover recipes using what you already have.</h3>
+
+        <%if(pantry.length == 0){%>
+            <div class="pantry-err">
+                <h2>Your Pantry is Empty</h2>
+                <p>Start adding ingredients to discover recipes based on what you already have.</p>
+            </div>
+        <% } else { %>
+            <div class="pantry-container">
+                <% pantry.forEach((item)=>{%>
+                    <div class="pantry-item">
+                        <p><%= item.ingredient %></p>
+                        <form action="/pantry/delete/<%= item.id %>" method="post">
+                            <button>Delete</button>
+                        </form>
+                    </div>
+                <%}) %>
+            </div>
+        <% } %>
+
+        <div class="form">
+            <button type="button" class="showForm"> + Add ingredient</button>
+            <div class="hidden addForm">
+                <form action="/pantry/add" method="post">
+                        <label for="item">Enter the Ingredient</label>
+                        <input type="text" name="item"  placeholder="eg. Egg" required>
+                        <button type="submit">ADD</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>  
+    <%- include('partials/footer') %>

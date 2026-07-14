@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+<div class="plannar">
+    <div class="plannar-head">
+        <h1>Today's Meal Plan</h1>
+        <p>Plan your breakfast, lunch and dinner.Update meals anytime and instantly search recipes.</p>
+    </div>
+  <% if(!plan || plan.length === 0){ %>
+    <div class="plannar-form">
+        <button type="button" class="pbtn">Create <%= date %>'s Meal Plannar</button>
+        <form action="/plannar/add" method="post" class="addpform hidden">
+            <h3><%= date %></h3>
+            <p>Breakfast</p>
+            <div class="meal-part">
+                <input type="hidden" name="mt[]" value="Breakfast">
+                <label for="mn[]">Meal Name:</label>
+                <input type="text" name="mn[]">
+            </div>
+            <p>Lunch</p>
+             <div class="meal-part">
+                <input type="hidden" name="mt[]" value="Lunch">
+                <label for="mn[]">Meal Name:</label>
+                <input type="text" name="mn[]">
+             </div>
+            <p>Dinner</p>
+             <div class="meal-part">
+                <input type="hidden" name="mt[]" value="Dinner">
+                <label for="mn[]">Meal Name:</label>
+                <input type="text" name="mn[]">
+             </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+  <% } else {%>
+    <div class="plannar-container">
+        <h2><%= date %>'s Meal Plan:</h2>
+        <div class="plannar-card">
+            <% plan.forEach((item)=>{%>
+                    <div class="plannar-item">
+                        <span class="meal-type"><%= item.mealtype %>:</span>
+                        <h3><%= item.mealname %></h3>
+                        <div class="meal-action">
+                            <a href="/plannar/<%= encodeURIComponent(item.mealname) %>">View Recipe</a>
+                            <button type="button" class="updatebtn">Change Meal</button>
+                        </div>
+                        <form action="/plannar/update/<%= date %>/<%= item.mealtype%>" method="post" class="updateform hidden">
+                            <label for="updatemeal">New Meal:</label>
+                            <input type="text" name="updatemeal">
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+            <%}) %>
+        </div>
+    </div>
+  <% } %>
+</div>
+<%- include('partials/footer') %>

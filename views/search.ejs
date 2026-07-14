@@ -1,0 +1,25 @@
+    <%- include('partials/header') %>
+
+   <div class="main-container">
+        <div class="main-content">
+            <h1>Discover Recipes with What You Already Have</h1>
+            <h3>Enter the ingredients you already have, and BiteCraft will suggest delicious recipes in seconds</h3>
+        </div>
+
+        <div class="main-form">
+            <form action="/recipes" method="post">
+               <label for="items">What's available in your kitchen today?</label>
+               <input type="text" name="items" autofocus placeholder="eg. Eggs, Chicken, Tomato, Cheese">
+               <button type="submit">Find Delicious Recipes</button>
+           </form>
+           <%if(locals.pantry){%>
+                <div class="divider">
+                   <span>OR</span>
+                </div>
+               <form action="/recipes/pantry" method="GET">
+                   <button type="submit" id="pantry-btn">Find Recipes from My Pantry</button>
+               </form>
+           <% } %>
+        </div>
+    </div>
+    <%- include('partials/footer') %>

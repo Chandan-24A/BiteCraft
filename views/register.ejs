@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<div class="register-container">
+    <div class="reg-content">
+        <img src="/images/recipe.png" alt="image of BiteCraft">
+        <h1>BiteCraft</h1>
+        <h2>Create Account</h2>
+    </div>
+
+
+    <div class="reg-form">
+       <form action="/register" method="post">
+           <div id="email">
+            <label for="email">Email ID</label>
+            <input type="email" name="username" placeholder="Enter your Email"> 
+           </div>
+           <div id="pass">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="password">
+           </div>
+            <button type="submit" id="submit">Register</button>
+       </form>
+   </div>
+</div>
+
+<%- include('partials/footer') %>

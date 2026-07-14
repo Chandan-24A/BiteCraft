@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+
+ <%if(meals.length === 0){%>
+   <div class="error">
+      <h1>🍽️ No recipes found</h1>
+      <p>
+         Try Some different Dishes.
+      </p>
+   </div>
+ <%}%>
+
+ <div class="searchbar-container">
+      <h1>Suggested Recipes</h1>
+
+      <div class="card-container">
+         <% meals.forEach((item) => { %>
+            <div class="recipe-card">
+              <img src=<%= item.image %> alt="image of recipe">
+              <h2><%= item.title %></h2>
+
+              <a href="/recipes/<%= item.id %>">View Full Recipe →</a>
+            </div>
+         <% }); %>
+      </div>
+ </div>
+<%- include('partials/footer') %>

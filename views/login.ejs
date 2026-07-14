@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<% if(error && error.length > 0){ %>
+
+<script>
+    alert("<%= error[0] %>");
+</script>
+
+<% } %>
+
+<div class="login-container">
+    <div class="login-content">
+        <img src="/images/recipe.png" alt="image of BiteCraft">
+        <h1>BiteCraft</h1>
+        <h2>Login To Your Account</h2>
+    </div>
+
+    <div class="login-form">
+       <form action="/login" method="post">
+          <div id="email">
+            <label for="email">Email ID</label>
+            <input type="email" name="username" placeholder="Enter your Email"> 
+           </div>
+           <div id="pass">
+            <label for="password">Password</label>
+            <input type="password" name="password">
+           </div>
+          <button type="submit" id="login-submit">Login</button>
+       </form>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

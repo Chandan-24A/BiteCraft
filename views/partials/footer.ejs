@@ -1,0 +1,36 @@
+</main> 
+<% if(user) {%>
+   <footer class="footer">
+      <div class="footer-container">
+
+          <div class="footer-logo">
+              <img src="/images/recipe.png" alt="logo of BiteCraft">
+              <h3>BiteCraft</h3>
+              <p>Smart Recipe Planner & Pantry Tracker</p>
+          </div>
+
+          <div class="footer-links">
+              <h4>Quick Links</h4>
+              <a href="/search">Search Recipes</a>
+              <a href="/pantry">Pantry</a>
+              <a href="/plannar">Meal Plannar</a>
+          </div>
+
+          <div class="footer-stack">
+              <h4>Build With</h4>
+              <p>Node.js</p>
+              <p>Express</p>
+              <p>PostgreSQL</p>
+              <p>RESTAPI</p>
+          </div>
+      </div>
+      <p class="copyright">
+          © <%= new Date().getFullYear() %> BiteCraft. All Rights Reserved.
+      </p>
+    
+   </footer>
+<% } %>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

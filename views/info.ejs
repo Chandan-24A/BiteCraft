@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+  
+<div class="info-container">
+   <div class="intro">
+      <img src="<%= information.image %>" alt="image of recipe">
+
+      <h1><%= information.title %></h1>
+      <p class="badge"><%= information.dishTypes.join(' || ') %></p>
+   </div>
+
+    <h4>🥬 Ingredients</h4>
+    <div class="list-border">
+        <ol>
+            <% information.extendedIngredients.forEach((ingredient)=>{%>
+              <li><%= ingredient.originalName %> - <%= ingredient.measures.us.amount %> <%= ingredient.measures.us.unitShort %></li>
+            <%})%>
+        </ol>
+    </div>
+    <h4>👨‍🍳 Preparation Steps</h4>
+    <div class="list-border">
+        <% if(information.analyzedInstructions &&information.analyzedInstructions.length > 0) {%>
+            <ol>
+                <% information.analyzedInstructions[0].steps.forEach((method)=>{ %>
+                <li><%= method.step %></li>
+                <%}) %>
+            </ol>
+        <% } else {%>
+            <p>No preparation steps available for this recipe.</p>
+        <% } %>
+    </div>
+</div>
+<%- include('partials/footer') %>
+
