@@ -282,7 +282,7 @@ app.get("/plannar/:recipe",async(req,res,next)=>{
         const result = await axios.get("https://api.spoonacular.com/recipes/complexSearch",{
             params:{
                 query:name,
-                number:1,
+                number:10,
                 apiKey:process.env.API_KEY
             }
         });
@@ -292,9 +292,11 @@ app.get("/plannar/:recipe",async(req,res,next)=>{
             return res.status(404).render("404.ejs");
         }
 
-        const id = result.data.results[0].id;
+        res.render("search-recipe.ejs",{meals:result.data.results});
 
-        return res.redirect(`/recipes/${id}`);
+        /*const id = result.data.results[0].id;
+
+        return res.redirect(`/recipes/${id}`);*/
 
     }catch(err){
 
